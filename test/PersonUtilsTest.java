@@ -106,7 +106,7 @@ public class PersonUtilsTest {
         assertThat(actual, (any(String.class)));
 
     }
-.
+
     @Test
 
     public void testCountWordsByCharacter (){
