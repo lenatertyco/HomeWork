@@ -83,12 +83,26 @@ public class PersonUtilsTest {
         Address a2 = new Address("Street 2", 23);
 
         List<Person> persons = new LinkedList<>();
-        persons.add(new Person("Slava", 30, a1));
-        persons.add(new Person("Ivan", 15, a2));
+        Person person1 = new Person("Slava", 30, a1);
+        Person person2 = new Person("Ivan", 15, a2);
+        Person person3 = new Person("Sophia", 30, a2);
+
+        persons.add(person1);
+        persons.add(person2);
+        persons.add(person3);
+
+        List<Person> mockKeyedPerson = new ArrayList<>();
+        mockKeyedPerson.add(person1);
+        mockKeyedPerson.add(person3);
+
+
+        ArrayList<Person> mockOnePersonList = new ArrayList<>();
+        mockOnePersonList.add(person2);
+
 
         Map <Integer, List<Person>> input = new HashMap<>();
-        input.put(30, (List<Person>) persons.get(0));
-        input.put(15, (List<Person>) persons.get(1));
+        input.put(30, mockKeyedPerson);
+        input.put(15, mockOnePersonList);
 
         Map<Integer, List<Person>> actual = PersonUtils.getPersonsByAge(persons);
         assertEquals("the list of persons by age",actual, input);
